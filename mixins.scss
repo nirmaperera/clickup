@@ -1,0 +1,12 @@
+@mixin button($color, $backgroundColor, $fontSize) {
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    border:none;
+    color:$color;
+    background-color:$backgroundColor;
+    font-size: $fontSize;
+    border-radius: 50px;
+    align-items: center;
+}
+
