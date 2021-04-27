@@ -8,5 +8,11 @@
     font-size: $fontSize;
     border-radius: 50px;
     align-items: center;
+    height: 60px;
+}
+
+@mixin arrow ($color){
+    transform: rotate(45deg) !important;
+    color:$color;
 }
 

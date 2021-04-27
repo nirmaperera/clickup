@@ -1,17 +1,13 @@
-
-
 @import './constants.scss';
 @import './mixins.scss';
 
-
 html,body {
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Nunito', sans-serif; //substitute avenir
 	box-sizing: border-box;
 	height: auto;
 	margin: 0px;
 	padding: 0px;
 	margin:0;
-
 }
 
 *, *::before, *::after {
@@ -21,145 +17,148 @@ html,body {
 }
 
 body{
-	//add font family
 	background: rgb(246,250,253);
 	background: linear-gradient(146deg, rgba(246,250,253,1) 0%, rgba(255,255,255,1) 100%);
 }
 
 //*********** NAVIGATION *********** //
-header{
+.navigation{
 	display: flex;
 	padding:3rem 5rem;
 	height: 60px;
 	align-items: center;
 	width: 100%;
 	justify-content: space-between;
-	.header__logo{
+
+	&__logo{
 		cursor: pointer;
 	}
-	.header__arrow{
-		color:$primaryPurple;
-		margin-left:2%;
-	}
-	.header__nav {
+
+	&__container{
 		display: flex;
-			nav{
-				display: flex;
-				justify-content: space-between;
-				padding: 0 40px;
-			ul{
-				display: flex;
-				justify-content: space-around;
-				align-items: center;
-				margin-left: 15%;
-				li {
-					list-style: none;
-					font-size: 16px;
-					color:$textBlue;
-					cursor: pointer;
-					padding: 0 1.4rem;
-					font-family: 'Nunito', sans-serif;
-					font-weight: 400;
-					&.active{
-						color:$navyBlue;
-						font-weight: 900;
-					}
-				}
-			}
+	}
+	&__nav{
+		display: flex;
+		justify-content: space-between;
+		padding: 0 40px;
+	}
+
+	&__menu{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin-left: 15%;
+	}
+
+	&__list{
+		list-style: none;
+		font-size: 16px;
+		color:$textBlue;
+		cursor: pointer;
+		padding: 0 1.4rem;
+		font-family: 'Nunito', sans-serif;
+		font-weight: 400;
+		&--active{
+			color:$navyBlue;
+			font-weight: 900;
 		}
 	}
 
-	button{
+	&__cta{
 		@include button($navyBlue,#fff,16px);
-		padding: 1rem 1.1rem;
 		box-shadow: 0px 5px 5px 0px rgba(75,93,104,0.1);
 		width: 16%;
-		img{
-			width: 20px;
-			margin-left: 10px;
-			align-self: center;
+		justify-content: center;
+		&__arrow{
+			@include arrow($primaryPurple);
+			margin-left: 5%;
 		}
 	}
 
-	.header__menu{
+	&__burger{
 		display: none;
 		color:$primaryPink;
 	}
 }
 
 //*********** HERO  *********** //
-section#landing{
+.hero{
 	padding:2rem 5rem 5rem 5rem;
 	display: flex;
 	justify-content: center;
 
-	.landing__text{
-		h1{
-			font-size: 80px;
-			color:$navyBlue;
-			font-weight: 700;
-			font-family: 'Helvetica', 'Arial', sans-serif;
-		}
-		p{
-			//avenir
-			color:$textBlue;
-			font-size: 18px;
-			margin-top:5%;
-			width: 77%;
-			line-height: 160%;
-			font-family: 'Nunito', sans-serif;
-			font-weight: 400;
-		}
-		button{
-			@include button(white,$primaryPurple,16px);
-			padding: 1rem 2rem;
-			font-size: 16px;
-			margin-top:5%;
-		}
-		img{
-			width: 750px;
-			float: right;
-			position: relative;
+	&__title{
+		font-size: 80px;
+		color:$navyBlue;
+		font-weight: 700;
+		font-family: 'Helvetica', 'Arial', sans-serif;
+	}
 
-		}
+	&__description{
+		color:$textBlue;
+		font-size: 18px;
+		margin-top:5%;
+		width: 77%;
+		line-height: 160%;
+		font-family: 'Nunito', sans-serif;
+		font-weight: 400;
+	}
+
+	&__cta{
+		@include button(white,$primaryPurple,16px);
+		padding: 1rem 2rem;
+		font-size: 16px;
+		margin-top:5%;
+		width: 170px;
+	}
+
+	&__img{
+		width: 750px;
+		float: right;
+		position: relative;
 	}
 }
 //*********** ABOUT *********** //
-section#about{
+.about{
 	padding:5rem;
 	display: flex;
-	.about__container{
+
+	&__container{
 		border-radius: 50px;
 		display: flex;
 		background-color: rgba(	240, 99, 184,0.15);
 		justify-content: space-between;
 		padding: 30px;
-		.about__text{
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			width: 50%;
-			h2{
-				color:$navyBlue;
-				font-size: 40px;
-				font-weight: bold;
-				line-height: 130%;
-				font-family: 'Helvetica', 'Arial', sans-serif;
-			}
-			p{
-				font-size: 18px;
-				color: $textBlue;
-				line-height: 1.6;
-				margin-top: 5%;
-				font-family: 'Nunito', sans-serif;
-				font-weight: 400;
-			}
+	}
+
+	.aboutText{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 50%;
+
+		&__title{
+			color:$navyBlue;
+			font-size: 40px;
+			font-weight: bold;
+			line-height: 130%;
+			font-family: 'Helvetica', 'Arial', sans-serif;
+		}
+
+		&__description{
+			font-size: 18px;
+			color: $textBlue;
+			line-height: 1.6;
+			margin-top: 5%;
+			font-family: 'Nunito', sans-serif;
+			font-weight: 400;
+			margin-right: 14%;
 		}
 	}
 }
 
 //*********** FEATURES *********** //
-section#features{
+.features{
 	padding: 5rem;
 	.features__header{
 		width:50%;
@@ -230,6 +229,7 @@ section#features{
 
 				}
 			}
+
 			.features__item-img{
 				display: flex;
 				flex-direction: column;
@@ -325,112 +325,116 @@ div#security.features__item{
 }
 
 //*********** Testimonals *********** //
-section#testimonials{
+.testimonials{
 	padding: 5rem;
 	display: flex;
 	margin-bottom: 10%;
-	.testimonials__container{
+	.testimonialContainer{
 		border-radius: 50px;
 		display: flex;
 		background-color: $primaryPurple;
 		justify-content: space-between;
-		padding: 30px;
 		padding-right: 0px;
 		flex-direction: column;
-		width: 90%;
+		width: 97%;
 		margin:0 auto;
 
-		h3{
-			margin: 5% 7%;
+		&__title{
+			margin: 5% 10%;
 			font-size: 40px;
 			color:white;
 			font-family: 'Helvetica', 'Arial', sans-serif;
 		}
-		.testimonals__item{
-			display: flex;
-			justify-content: flex-end;
+	}
 
-			#currentTestimonal{
-				width: 56%;
+	.testimonalSlider{
+		display: flex;
+		justify-content: flex-end;
+
+		&__item{
+			border-radius: 20px;
+			padding: 60px 50px;
+			width:34%;
+			display: flex;
+			box-shadow: 0px 15px 0px 0px #8A56DB;
+			border: 1px solid #9C69E2;
+			background: linear-gradient(102deg, rgba(255,255,255,1) 14%, rgba(167,121,229,1) 91%, rgba(156,105,226,1) 100%);
+			height: 90%;
+
+			&--active{
+				width: 52%;
 				margin-right: 3%;
 				padding: 60px;
 				background: white;
 			}
-			.testimonal{
-				border-radius: 20px;
-				padding: 60px 50px;
-				width:34%;
-				display: flex;
-				box-shadow: 0px 15px 0px 0px #8A56DB;
-				border: 1px solid #9C69E2;
-				background: linear-gradient(102deg, rgba(255,255,255,1) 14%, rgba(167,121,229,1) 91%, rgba(156,105,226,1) 100%);
-				img{
-					width:80px;
-					height: 80px;
-				}
-				.testimonal__info{
-					padding:0 20px;
-					h4{
-						color:$navyBlue;
-						font-size: 18;
-						line-height: 1.6;
-						letter-spacing: 0.5px;
-					}
-					.testimonal__title{
-						letter-spacing: 1px;
-						color:$primaryPurple;
-						font-size: 14px;
-						line-height: 1.6;
-						margin-bottom: 20px;
-					}
-					p{
-						color:$textBlue;
-						font-size: 18;
-						line-height: 1.8;
-						font-family: 'Nunito', sans-serif;
-					}
-				}
-			}
+		}
+		&__img{
+			width:80px;
+			height: 80px;
+		}
+		&__info{
+			padding:0 20px;
+		}
+		&__name{
+			color:$navyBlue;
+			font-size: 18;
+			line-height: 1.6;
+			letter-spacing: 0.5px;
+		}
+		&__title{
+			letter-spacing: 1px;
+			color:$primaryPurple;
+			font-size: 14px;
+			line-height: 1.6;
+			margin-bottom: 20px;
+		}
+		&__description{
+			color:$textBlue;
+			font-size: 18;
+			line-height: 1.8;
+			font-family: 'Nunito', sans-serif;
 		}
 	}
 }
 
-.testimonals__footer{
+.testimonials .testimonialContainer .testimonalsFooter{
 	width: 100%;
-	padding:0 5rem;
+	padding: 2rem 8rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-	.testimonals__footer-dots{
-		margin-top: 5%;
-		span{
-			border-radius: 50px;
-			background-color:#E9E9EE;
-			height: 5px;
-			width: 5px;
-			display: inline-block;
-			margin-right: 5px;
-			cursor: pointer;
-		}
-		#active{
+	align-items: center;
+
+	&__dots{
+		border-radius: 50px;
+		background-color:#E9E9EE;
+		height: 5px;
+		width: 5px;
+		display: inline-block;
+		margin-right: 5px;
+		cursor: pointer;
+
+		&--active{
 			height:7px;
 			width: 7px;
 			background-color:$primaryPink
 		}
 	}
-	.testimonals__footer-arrows{
+
+	&__arrows{
 		display: flex;
 		align-items: center;
 		width: 10%;
 		justify-content: space-around;
-		svg.iconify{
-			cursor: pointer;
-		}
-		svg.iconify.left{
+
+		&__left{
 			color: white;
 			font-size: 35px;
+			cursor: pointer;
 		}
-		svg.iconify.right{
+
+		&__right{
+			cursor: pointer;
 			font-size: 20px;
 			color:#CEB5F1 !important;
 		}
@@ -438,199 +442,235 @@ section#testimonials{
 }
 
 //*********** FOOTER *********** //
-footer{
+.footer{
 	padding:0 5rem;
 	padding-bottom: 5rem;
-	hr{
+
+	&__hr{
 		border:1px solid #EBE1F9 ;
 		margin-bottom: 5%;
 	}
-	.footer__header{
+	.footerHeader{
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 10%;
-		h3{
-			font-size: 40px;
-			color:$navyBlue;
-			line-height: 1.3;
-			font-family: 'Helvetica', 'Arial', sans-serif;
-			font-weight: 700;
-		}
-		p{
-			color:$textBlue;
+
+		.footerInfo{
+			&__title{
+				font-size: 40px;
+				color:$navyBlue;
+				line-height: 1.3;
+				font-family: 'Helvetica', 'Arial', sans-serif;
+				font-weight: 700;
+			}
+			&__subTitle{
+				color:$textBlue;
 			font-size: 18;
 			line-height: 1.6;
 			margin-top: 5%;
 			font-family: 'Nunito', sans-serif;
 			font-weight: 300;
+			}
 		}
+	}
 
-		.footer__btns{
-			display: flex;
-			width: 50%;
-			justify-content: flex-end;
-			button{
-				height: 50px;
-				padding:10px 35px;
-				line-height: 1.6;
-				margin-left: 5%;
-			}
-			#learn{
+	.footerbtns{
+		display: flex;
+		width: 50%;
+		justify-content: flex-end;
+
+		&__btn{
+			line-height: 1.6;
+			margin-left: 5%;
+			padding:10px 35px;
+
+			&--learn{
 				@include button(white,$primaryPink,18px);
-
 			}
-			#demo{
+			&--demo{
+				display: flex;
 				@include button($navyBlue,white,18px);
 				box-shadow: 0px 5px 5px 0px rgba(75,93,104,0.1);
-				display: unset;
+				justify-content: center;
+				width: 39%;
 			}
+		}
+		&__arrow{
+			@include arrow($primaryPurple);
+			margin-left: 2%;
 		}
 	}
 }
 
-.footer__info{
+.footer .footerMain{
 	display: flex;
 	justify-content: space-between;
-	.footer__info-logo{
-		display: flex;
-		justify-content: flex-start;
-		margin-bottom: 20%;
-		h4{
+
+	.footerAddress{
+		&__info{
+			font-size: 18px;
 			color:$navyBlue;
-			font-size: 20px;
-			line-height:1.6;
-			margin-left:5%;
+			line-height: 1.8;
+			letter-spacing: 1;
+
+			&:last-child{
+				margin-top: 5%;
+				font-weight: 100;
+			}
 		}
 	}
-	.footer__info-address p{
-		font-size: 18px;
-		color:$navyBlue;
-		line-height: 1.8;
-		letter-spacing: 1;
-		&:last-child{
-			margin-top: 5%;
-			font-weight: 100;
-		}
-	}
-	.footer__info-title{
-		font-size: 16px;
-		font-weight: 800;
-		color:$navyBlue;
-		margin-bottom: 100%;
-	}
-	.footer__info-socialTitle{
-		font-size: 16px;
-		font-weight: 800;
-		color:$navyBlue;
-		margin-bottom: 25%;
-	}
-	.footer__info-list{
-		list-style: none;
-		font-size: 16px;
-		color:$navyBlue;
-		line-height: 2.5;
-		li{
-			cursor: pointer;
-		}
-		&:last-of-type{
-			li{
-				span#circle{
-					border-radius: 50px;
-					background-color:#E9E9EE;
-					height: 40px;
-					width: 40px;
-					display: inline-block;
-					cursor: pointer;
+
+	.footerLinks{
+		padding:0 10px;
+			&__logo{
+				display: flex;
+				justify-content: flex-start;
+				margin-bottom: 20%;
+			}
+			&__name{
+				color:$navyBlue;
+				font-size: 20px;
+				line-height:1.6;
+				margin-left:5%;
+			}
+
+			&__title{
+				font-size: 16px;
+				font-weight: 800;
+				color:$navyBlue;
+				margin-bottom: 100%;
+			}
+			&__socialTitle{
+				font-size: 16px;
+				font-weight: 800;
+				color:$navyBlue;
+				margin-bottom: 25%;
+			}
+
+			&__list{
+				list-style: none;
+				font-size: 16px;
+				color:$navyBlue;
+				line-height: 2.5;
+
+				&--social{
+					display: flex;
+					justify-content: flex-start;
 				}
 			}
-		}
-	}
-	div:last-of-type{
-		width: 275px;
-		ul{
-			display: flex;
-			justify-content: flex-start;
-			li{
-				margin-right: 20px;
+
+			&__item{
+				&--social{
+					margin-right: 10%;
+				}
 			}
+
+			&--social{
+				width: 222px;
 		}
 	}
 }
 
+
+.footerLinks__circle{
+	margin-right: 5%;
+	border-radius: 50px;
+	background-color:#E9E9EE;
+	height: 40px;
+	width: 40px;
+	display: inline-block;
+	cursor: pointer;
+}
 
 //*********** MEDIA QUERIES  *********** //
 //small devices
 @media screen and (max-width: 860px) {
-	header .header__nav nav ul, header button{
-		display: none;
-	}
-	header{
+	.navigation{
 		padding: 3rem 2rem;
+		&__menu{
+			display:none
+		}
+		&__cta{
+			display: none;
+		}
+		&__burger{
+			color:$primaryPink;
+			display: block;
+			font-size: 40px;
+			display: flex;
+			cursor: pointer;
+		}
 	}
-	header .header__menu{
-		display: block;
-		font-size: 40px;
-		display: flex;
-		cursor: pointer;
-	}
-	section#landing{
+
+	.hero{
 		flex-direction: column;
 		padding: 2rem;
-		.landing__text{
-			h1{
-				font-size: 40px;
-			}
-			p{
-				width: unset;
-			}
+
+		&__title{
+			font-size: 40px;
 		}
-		.landing__text img {
+
+		&__description{
+			width: unset;
+		}
+
+		&__img {
 			width:100%;
 			margin:10% 0;
 			bottom:0;
 			float: unset;
 		}
 	}
-	section#about{
+
+	.about{
 		padding: 2rem;
-		.about__container{
+		&__container{
 			flex-direction: column;
-			.about__image img{
-				width: 100%;
+		}
+		.aboutText{
+			width: 100%;
+			padding:20px;
+			&__title{
+				margin-bottom: 5%;
 			}
-			.about__text{
-				width: 100%;
-				padding:20px;
+			&__description{
+				margin:0;
 			}
+		}
+
+		&__image img{
+			width: 100%;
 		}
 	}
 
-	section#testimonials{
+	.testimonials{
 		padding: 2rem;
-		.testimonials__container {
+		.testimonialContainer {
 			padding: 20px;
-			.testimonals__item {
-				#currentTestimonal{
+		}
+		.testimonalSlider{
+			&__item{
+				display: none;
+				&--active{
 					width:100%;
 					display: block;
 					margin:0;
 					padding: 20px;
-				}
-				.testimonal{
-					display: none;
+					height: auto;
 				}
 			}
-			.testimonals__footer{
-				padding: 0.5rem 3rem;
-				align-items: unset;
-				.testimonals__footer-arrows{
-					width: 50%;
-				}
+		}
+
+		.testimonalsFooter{
+			padding: 0.5rem 3rem !important;
+
+			&__arrows{
+				width: 30% !important;
 			}
 		}
 	}
 
-	section#features{
+	.features{
 		padding:2rem;
 		 .features__header{
 			width: unset;
@@ -638,7 +678,7 @@ footer{
 		.features__grid{
 			grid-template-columns: repeat(1, 1fr);
 			margin-left: 0;
-			margin-top: 25%;
+			margin-top: 50%;
 			.features__item{
 				flex-direction: column;
 					.features__item-info{
@@ -653,60 +693,74 @@ footer{
 		}
 	}
 
-	footer {
-		.footer__header{
+	.footer {
+		.footerHeader{
 			flex-direction: column;
 			align-items: center;
-			h3{
+		}
+		.footerInfo{
+			&__title, &__subTitle{
 				text-align: center;
 			}
-			.footer__btns{
-				width: 70%;
-				display: flex;
-				flex-direction: column;
-				button{
-					margin:  5% 0;
-				}
+		}
+
+		.footerbtns{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			&__btn{
+				width: 100%;
+				margin:  5% 0;
 			}
 		}
 	}
 
-	.footer__info{
+	.footer .footerMain{
 		flex-direction: column;
-		.footer__info-Container{
+		.footerLinks{
 			display: flex;
 			flex-direction: column;
 			text-align: center;
 			justify-content: center;
 			align-items: center;
-			&:last-of-type{
+
+			&__logo{
+				margin-bottom: 10%;
+				justify-content: space-evenly;
+			}
+
+			&__title, &__subTitle, &__socialTitle{
+				margin: 10% 0;
+			}
+
+			&--social{
 				width: unset;
-				ul li{
+			}
+
+			&__item{
+				&--social{
 					margin: 0 10px;
 				}
 			}
 		}
-		.footer__info-logo{
-			margin-bottom: 10%;
-			justify-content: space-evenly;
-		}
-		.footer__info-title{
-			margin: 10% 0;
-		}
-		.footer__info-socialTitle{
-			margin:10% 0;
-		}
 	}
 }
 
+
 //large screeens
 @media screen and (min-width: 1800px) {
-	header, section#landing,section#about, section#testimonials,footer, section#features{
+	.navigation, .landing,.about, .testimonials,.footer, .features{
 		padding:5rem 20rem;
 	}
-	section#landing{
+	.landing{
 		.landing__text{
 			margin-top:5%;
+		}
+	}
+	.features__header{
+		p{
+			margin-bottom: 5%;
 		}
 	}
 }
